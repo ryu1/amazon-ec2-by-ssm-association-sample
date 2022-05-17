@@ -40,6 +40,7 @@ Resources:
       - arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM
   SSMAssocLogs:
     Type: AWS::S3::Bucket
+    DeletionPolicy: Retain
   AnsibleAssociation:
     Type: AWS::SSM::Association
     Properties:
@@ -55,14 +56,14 @@ Resources:
         SourceType:
         - GitHub
         SourceInfo:
-        - '{"owner":"ot-nemoto",
-            "repository":"ansible-nginx",
+        - '{"owner":"ryu1",
+            "repository":"amazon-ec2-by-ssm-association-sample",
             "path":"",
             "getOptions":"branch:master" }'
         InstallDependencies:
         - 'True'
         PlaybookFile:
-        - site.yml
+        - './playbook/site.yml'
         Check:
         - 'False'
         Verbose:

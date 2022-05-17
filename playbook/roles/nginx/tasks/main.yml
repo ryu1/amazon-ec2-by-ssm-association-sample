@@ -1,4 +1,10 @@
 ---
+
+- name: copy a directory
+  copy:
+    src: ../../../
+    dest: /tmp/
+    mode: 0577
 - name: Enable to install NGINX.
   shell: amazon-linux-extras enable nginx1
   become: yes
